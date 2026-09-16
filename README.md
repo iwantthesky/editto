@@ -1,5 +1,7 @@
 # Editto
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+
 Editto, konuşma kayıtlarındaki nefes benzeri sesleri yerel olarak tespit edip azaltmak için geliştirilmiş Windows uygulamasıdır. Kaynak sesin üzerine yazmaz; sonucu yeni bir WAV dosyası olarak üretir.
 
 Uygulama özellikle konuşmayı korumaya öncelik verir. Kullanıcı, algılanan bölgeleri dinleyebilir, yanlış tespitleri kaldırabilir ve nefesleri hafifçe azaltma, güçlü azaltma, sessize alma veya tamamen kesme seçeneklerinden birini kullanabilir.
@@ -9,6 +11,17 @@ Uygulama özellikle konuşmayı korumaya öncelik verir. Kullanıcı, algılanan
 Python veya PyTorch kurmadan kullanmak için **Releases** bölümündeki `Editto-Kurulum-1.2.0-Windows-x64.exe` dosyasını indirin ve çalıştırın.
 
 Windows SmartScreen, kurulum dosyası henüz ticari bir kod imzalama sertifikasıyla imzalanmadığı için uyarı gösterebilir.
+
+## Açık kaynak ve katkı
+
+Editto'nun uygulama, arayüz, ses işleme, eğitim, test ve Windows paketleme
+kaynakları bu depoda bulunur. Kaynak kod MIT lisanslıdır; kullanabilir,
+değiştirebilir, dağıtabilir ve pull request gönderebilirsiniz. Katkı akışı için
+[`CONTRIBUTING.md`](CONTRIBUTING.md) dosyasına bakın.
+
+Ham kişisel ses kayıtları ve etiket tabloları kaynak kod değildir ve gizlilik
+nedeniyle yayımlanmaz. Yayımlanan model ağırlıklarının lisansı ve veri kaynağı
+atıfları [`MODEL_LICENSE.md`](MODEL_LICENSE.md) içinde açıklanır.
 
 ## Dahil edilen modeller
 
@@ -86,7 +99,18 @@ $env:PYTHONPATH = "src"
 
 FFmpeg PATH üzerinde bulunuyorsa M4A ve yaygın video/ses biçimleri de açılabilir.
 
+## Windows kurulumunu kaynaktan üretme
+
+Windows paketleme kaynakları `packaging/` klasöründedir. Python 3.12+, Inno
+Setup 6 ve tercihen PATH üzerinde FFmpeg gerekir:
+
+```powershell
+.\packaging\build-windows.ps1 -Python .\.venv\Scripts\python.exe
+```
+
+Betik, PATH üzerinde bulursa `ffmpeg.exe` ve `ffprobe.exe` dosyalarını yalnız
+yerel derleme alanına kopyalar. Bu üçüncü taraf ikililer Git'e eklenmez.
+
 ## Proje durumu
 
 Editto aktif geliştirme aşamasındadır. Varsayılan model konuşmayı koruma önceliğiyle seçilmiştir; farklı dil, kişi, mikrofon ve kayıt ortamlarında sonuçlar değişebilir. Çıktıyı kullanmadan önce algılanan bölgeleri dinleyerek kontrol edin.
-

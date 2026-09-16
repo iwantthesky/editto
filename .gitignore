@@ -3,6 +3,7 @@ __pycache__/
 .venv/
 .pytest_cache/
 .tmp-test/
+.tmp-open-source-*/
 dataset/
 outputs/
 tmp/
@@ -15,3 +16,7 @@ backups/
 *.mov
 *.mkv
 personal_cnn_v3_report.json
+build/
+dist/
+installer_output/
+packaging/vendor/
