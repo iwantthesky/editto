@@ -1,0 +1,64 @@
+{
+  "model_type": "breath_cnn_v2",
+  "version": "breath_cnn_personal_v3",
+  "created_at": "2026-09-15",
+  "preprocess": {
+    "sample_rate": 16000,
+    "window_samples": 8000,
+    "n_fft": 512,
+    "hop_length": 160,
+    "n_mels": 64,
+    "normalization": "peak_then_logmel_v1"
+  },
+  "scan": {
+    "hop_samples": 1600,
+    "minimum_consecutive_windows": 3,
+    "minimum_rms_dbfs": -65,
+    "region_start_offset": 0.2,
+    "region_end_offset": 0.3
+  },
+  "weights_file": "breath_cnn_personal_v3_seed89.pt",
+  "weights_sha256": "17978162a17d4ea4d2ba52d879a4adb1e775470c8ca0ec504023d8ad2d6f6ca4",
+  "recommended_threshold": 0.7516387959866221,
+  "seed": 89,
+  "status": "candidate",
+  "accepted": false,
+  "requires_review": true,
+  "base_model": "editto-cnn-20260907-v2",
+  "personal_recordings": 4,
+  "personal_labeled_candidates": 419,
+  "context_windows_per_candidate": 5,
+  "augmentation": {
+    "gain_db": [
+      -9,
+      6
+    ],
+    "snr_db": [
+      22,
+      38
+    ],
+    "time_shifts_seconds": [
+      -0.16,
+      -0.08,
+      0,
+      0.08,
+      0.16
+    ]
+  },
+  "recording_held_out_candidate_validation": {
+    "n": 419,
+    "tp": 37,
+    "fp": 13,
+    "fn": 29,
+    "tn": 340,
+    "precision": 0.74,
+    "recall": 0.5606060606060606,
+    "speech_fpr": 0.036827195467422094
+  },
+  "limitations": [
+    "One speaker across four recordings; not general-use evidence.",
+    "Non-breath intervals are candidate labels, not continuous full-recording annotation.",
+    "Full-scan detections in unannotated time cannot be counted as false positives.",
+    "A new locked recording is required before promotion."
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "model_type": "breath_cnn_v2",
+  "version": "editto-cnn-20260907-v2",
+  "preprocess": {
+    "sample_rate": 16000,
+    "window_samples": 8000,
+    "n_fft": 512,
+    "hop_length": 160,
+    "n_mels": 64,
+    "normalization": "peak_then_logmel_v1"
+  },
+  "scan": {
+    "hop_samples": 1600,
+    "minimum_consecutive_windows": 3,
+    "minimum_rms_dbfs": -65,
+    "region_start_offset": 0.2,
+    "region_end_offset": 0.3
+  },
+  "weights_file": "breath_cnn_v2_seed42.pt",
+  "recommended_threshold": 0.7582763819095477,
+  "weights_sha256": "f8c999fb1ad166aba6b88a8764c7311a79d88b23043600e71f98b9b379217557",
+  "seed": 42,
+  "validation": {
+    "n": 1149,
+    "tp": 786,
+    "fp": 0,
+    "fn": 0,
+    "tn": 363,
+    "precision": 1.0,
+    "recall": 1.0,
+    "fpr": 0.0,
+    "precision_ci95": [
+      0.9951362399752052,
+      1
+    ],
+    "recall_ci95": [
+      0.9951362399752052,
+      1
+    ],
+    "fpr_ci95": [
+      0,
+      0.010472094767878016
+    ]
+  },
+  "manifest_sha256": "289cecac4d0178b94c51d5b96d4e6760d7147fac0f2e696ffb2a034af8d35346",
+  "status": "candidate",
+  "accepted": false,
+  "requires_review": true,
+  "limitations": [
+    "Speech negatives are weak labels, not manually breath-free intervals.",
+    "BreathBase speaker grouping inferred from filename; needs explicit documentation.",
+    "Source identity is correlated with label; cross-corpus validation missing.",
+    "Continuous boundary accuracy not independently annotated."
+  ]
+}

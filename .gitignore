@@ -1,0 +1,17 @@
+__pycache__/
+*.py[cod]
+.venv/
+.pytest_cache/
+.tmp-test/
+dataset/
+outputs/
+tmp/
+backups/
+*.wav
+*.mp3
+*.m4a
+*.flac
+*.mp4
+*.mov
+*.mkv
+personal_cnn_v3_report.json
